@@ -16,3 +16,6 @@ dataset<-mutate(dataset,Time=paste(Date,Time,sep=" "))
 dataset$Time<-strptime(dataset$Time,"%d/%m/%Y %H:%M:%S")
 dataset$Date<-as.Date(dataset$Date,"%d/%m/%Y")
 #subset for 2007-02-01 to 2007-02-02
+date1<-as.Date("2007-02-01")
+date2<-as.Date("2007-02-01")
+datasubset<-dataset[dataset$Date>=date1 & dataset$Date<=date2,]
