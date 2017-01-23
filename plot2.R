@@ -19,8 +19,9 @@ dataset$Date<-as.Date(dataset$Date,"%d/%m/%Y")
 date1<-as.Date("2007-02-01")
 date2<-as.Date("2007-02-02")
 datasubset<-dataset[dataset$Date>=date1 & dataset$Date<=date2,]
-#plot1
-with(datasubset,hist(Global_active_power,
-                     main="Global Active Power",
-                     xlab="Global Active Power (kilowatts)",
-                     col="red"))
+#plot2
+with(datasubset,plot(Time,
+                     Global_active_power,
+                     ylab="Global Active Power (kilowatts",
+                     type="l",
+                     col="black"))
