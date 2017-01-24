@@ -22,6 +22,8 @@ datasubset<-dataset[dataset$Date>=date1 & dataset$Date<=date2,]
 #plot2
 with(datasubset,plot(Time,
                      Global_active_power,
-                     ylab="Global Active Power (kilowatts",
+                     ylab="Global Active Power (kilowatts)",
                      type="l",
                      col="black"))
+dev.copy(device=png,file="plot2.png",height=480,width=480)
+dev.off()

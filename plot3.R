@@ -31,4 +31,6 @@ with(datasubset,legend("topright",
                        legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
                        col=c("black","red","blue"),
                        lty=1,
-                       ncol=1))
+                       y.intersp=0.5))
+dev.copy(device=png,file="plot3.png",height=480,width=480)
+dev.off()

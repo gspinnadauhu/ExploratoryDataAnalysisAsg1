@@ -20,40 +20,40 @@ date1<-as.Date("2007-02-01")
 date2<-as.Date("2007-02-02")
 datasubset<-dataset[dataset$Date>=date1 & dataset$Date<=date2,]
 #plot4
-with(datasubset,par(mfcol=c(2,2)))
+with(datasubset,par(mfcol=c(2,2),mar=c(4,4,2,2),oma=c(0,0,0,0)))
 ##topleft
 with(datasubset,plot(Time,
                      Global_active_power,
-                     ylab="Global Active Power (kilowatts",
+                     ylab="Global Active Power",
                      type="l",
-                     col="black",
-                     mfg=c(1,1)))
+                     col="black"))
 ##bottomleft
 with(datasubset,plot(Time,
                      Sub_metering_1,
                      ylab="Energy sub metering",
                      xlab="",
-                     type="l",
-                     mfg=c(2,1)))
+                     type="l"))
 with(datasubset,lines(Time,Sub_metering_2,col="red"))
 with(datasubset,lines(Time,Sub_metering_3,col="blue"))
 with(datasubset,legend("topright",
                        legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
                        col=c("black","red","blue"),
                        lty=1,
-                       ncol=1))
+                       box.lty=0,
+                       y.intersp=0.4,
+                       bg="transparent"))
 ##topright
 with(datasubset,plot(Time,
                      Voltage,
                      ylab="Voltage",
                      xlab="datetime",
                      type="l",
-                     col="black",
-                     mfg=c(1,2)))
+                     col="black"))
 ##bottomright
 with(datasubset,plot(Time,
                      Global_reactive_power,
                      xlab="datetime",
                      col="black",
-                     mfg=c(2,2),
                      type="l"))
+dev.copy(device=png,file="plot4.png",height=480,width=480)
+dev.off()
